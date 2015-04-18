@@ -40,7 +40,7 @@ class Migration(SchemaMigration):
             ('latitude', self.gf('django.db.models.fields.FloatField')()),
             ('longitude', self.gf('django.db.models.fields.FloatField')()),
             ('water_level', self.gf('django.db.models.fields.FloatField')()),
-            ('speed', self.gf('django.db.models.fields.FloatField')()),
+            #('speed', self.gf('django.db.models.fields.FloatField')()),
             ('time', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
         ))
         db.send_create_signal(u'analytics', ['TrackingData'])

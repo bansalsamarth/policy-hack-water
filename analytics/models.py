@@ -26,3 +26,5 @@ class WaterDispenserData(models.Model):
 	time = models.DateTimeField(auto_now_add = True)
 	tanker = models.ForeignKey(Tanker)
 	amount = models.FloatField()
+	latitude = models.FloatField()
+	longitude = models.FloatField()

@@ -9,13 +9,14 @@ def parse_tracking_data(request):
 	data = json.load(request.POST['data'])
 	track = TrackingData()
 
-	#json = {"id" : 1, "data": ["lat", "long", "water_level", "time"]}
+	#json = {"id" : 1, "data": ["lat", "long", "water_level", "speed", "time"]}
 	tanker_id = data['id']
 	track.tanker = Tanker.objects.get(id = int(tanker_id))
 	track.latitude = data['data'][0]
 	track.longitude = data['data'][1]
 	track.water_level = data['data'][2]
-	track.time = data['data'][3]
+	track.speed = data['data'][3]
+	track.time = data['data'][4]
 	track.save()
 
 	return HttpResponse("Okay", status = 200)
@@ -36,4 +37,3 @@ def parse_dispension_data(request):
 	amount = data['data'][3]
 
 	return HttpResponse("Okay", status = 200)
-

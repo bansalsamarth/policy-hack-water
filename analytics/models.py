@@ -19,13 +19,13 @@ class TrackingData(models.Model):
 	latitude = models.FloatField()
 	longitude = models.FloatField()
 	water_level = models.FloatField()
-	speed = models.FloatField()
+	#speed = models.FloatField()
 	time = models.DateTimeField(auto_now_add = True)
 
 class WaterDispenserData(models.Model):
 	citizen = models.ForeignKey(Citizen)
-	time = models.DateTimeField(auto_now_add = True)
 	tanker = models.ForeignKey(Tanker)
+	time = models.DateTimeField(auto_now_add = True)
 	amount = models.FloatField()
 	latitude = models.FloatField()
 	longitude = models.FloatField()

@@ -18,14 +18,12 @@ def parse_tracking_data(request):
 	a = data['data']
 	a = a.split(",")
 	track.latitude = a[0]
-	#return HttpResponse(track.latitude)
 	track.longitude = a[1]
 	track.water_level = a[2]
-	#track.speed = data['data'][3]
-	#track.time = data['data'][3]
 	track.save()
-
-	return HttpResponse("Okay", status = 200)
+	a = {"msg" : "Successful"}
+	ret = json.dumps(a)
+	return HttpResponse(ret, status = 200)
 
 @csrf_exempt
 def parse_dispension_data(request):

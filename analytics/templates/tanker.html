@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{%load staticfiles %}
+
+{%block content%}
+
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>Tank Search</h1>
+  </section>
+  
+  <section class="content">
+
+	<form class="form-inline">
+	  <div class="form-group">
+	    <label class="sr-only">Tanker ID</label>
+	    <div class="input-group">
+	      	<input type="text" class="form-control" id="tanker_id" placeholder="34">
+	    </div>
+	  </div>
+	  <button type="submit" class="btn btn-primary">Search</button>
+	</form>
+	<hr>
+	<div class = "row">
+		<div class="col-md-3 col-sm-6 col-xs-12">
+	        <div class="info-box">
+	            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+	            <div class="info-box-content">
+	                <span class="info-box-text">CPU Traffic</span>
+	                <span class="info-box-number">90<small>%</small></span>
+	            </div>
+	        </div>
+	            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+	            <div class="info-box-content">
+	                <span class="info-box-text">CPU Traffic</span>
+	                <span class="info-box-number">90<small>%</small></span>
+	            </div>
+	        </div>
+	    </div>
+  </section>
+</div>
+
+{%endblock%}
+
+

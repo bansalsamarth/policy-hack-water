@@ -9,6 +9,8 @@ class DriverResource(ModelResource):
 		resource_name = "driver"
 
 class TankerResource(ModelResource):
+	#driver = fields.ForeignKey(DriverResource, 'driver')
+	tracks = fields.ToManyField('analytics.api.resources.TrackingResource', 'track', full=True, null=True)
 	class Meta:
 		queryset = Tanker.objects.all()
 		resource_name = "tanker"
@@ -26,7 +28,7 @@ class DispensingDataResource(ModelResource):
 		resource_name = "dispenser"
 
 class TrackingResource(ModelResource):
-	tanker = fields.ForeignKey(TankerResource, 'tanker')
+	tanker = fields.ToOneField(TankerResource, 'tanker')
 	class Meta:
 		queryset = TrackingData.objects.all()
 		resource_name = "track"

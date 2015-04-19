@@ -85,7 +85,12 @@ def latest_tanker_data(request):
 		"sec":i.time.second,
 		}
 	ret = json.dumps(ret)
-	return HttpResponse(ret, content_type = "application/json")
+	response = HttpResponse(ret, content_type = "application/json")
+	response["Access-Control-Allow-Origin"] = "*"
+	response["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+	response["Access-Control-Max-Age"] = "1000"
+	response["Access-Control-Allow-Headers"] = "*"
+	return response	
 
 
 

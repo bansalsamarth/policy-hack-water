@@ -118,3 +118,6 @@ def leakage(request):
 
 def maintainance(request):
 	return render_to_response('maintainance.html', {'active_tab':'maintain'}, context_instance = RequestContext(request))
+
+def hardware(request):
+	return render_to_response('hardware.html', {'active_tab':'hardware'}, context_instance = RequestContext(request))

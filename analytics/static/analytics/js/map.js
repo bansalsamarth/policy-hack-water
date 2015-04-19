@@ -12,7 +12,7 @@ $(document).ready(function(){
  
         var getLocationDataForTanker = function() {
           var mapOptions = {
-              zoom: 13,
+              zoom: 11,
               center: {lat: 28.6284909, lng: 77.2222353}
           };
           map = new google.maps.Map(document.getElementById('map'), mapOptions);

@@ -18,18 +18,18 @@ $(document).ready(function(){
           map = new google.maps.Map(document.getElementById('map'), mapOptions);
           var myLatlng = new google.maps.LatLng(28.634592,77.217321);
  
-          // marker1 = new google.maps.Marker({
-          //     position: myLatlng,
-          //     map: map,
-          //     title:"Truck 1",
-          //     icon: STATIC_URL + "fuel_tanker.png"
-          // });
-          //  marker2 = new google.maps.Marker({
-          //     position: myLatlng,
-          //     map: map,
-          //     title:"Truck 2",
-          //      icon: STATIC_URL + "fuel_tanker.png"
-          // });
+           var myLatlng1 = new google.maps.LatLng(28.709861,77.176552);
+           var myLatlng2 = new google.maps.LatLng(28.56613,77.253456);
+          marker1 = new google.maps.Marker({
+              position: myLatlng1,
+              map: map,
+              title:"Truck 1"
+          });
+           marker2 = new google.maps.Marker({
+              position: myLatlng2,
+              map: map,
+              title:"Truck 2"
+           });
           //   marker3 = new google.maps.Marker({
           //     position: myLatlng,
           //     map: map,

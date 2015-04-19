@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{%load staticfiles %}
+
+{%block head_files%}
+    <style type="text/css">
+
+    #container {
+        background: rgba( 0, 0, 0, 0.10);
+        margin-left:auto;
+        margin-right:auto;
+        width: 312px;
+        border-left: 1px solid #bbb;
+        border-right: 1px solid #bbb;
+        border-bottom: 1px solid #bbb;
+        border-top: 1px solid #ccc;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 30px;
+        padding-top: 5px;
+    }
+    #glass {
+        background: rgba( 255, 255, 255, 0.50);
+        border: 1px solid #bbb;
+        border-top: 1px solid #eee;  
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        width: 300px;
+        height: 400px;
+        position: relative;
+    }
+    #water {
+        background-image: url("http://localhost:8001/static/analytics/images/water.jpg");   
+        background-position: top right;
+        position: absolute;
+        bottom: 0px;
+        width: 300px;
+        height: 10px;
+        transition: all 1s ease-out;
+        -moz-transition: all 1s ease-out;
+        -o-transition: all 1s ease-out;
+        transition: all 1s ease-out;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+    }
+    </style>
+
+{%endblock%}
+
+{%block content%}
+
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+      Hardware Testing
+    </h1>
+  </section>
+  
+  <section class="content">
+    <div id="container">
+    <div id="glass">
+        <div id="water"></div>
+    </div>
+    </div>
+    <br>
+    <hr>
+    <b>Real Time Coordinates for Tanker 1 (for demo) : </b><div id="coordis"></div>
+  </section>
+  <br>
+</div>
+
+{%endblock%}
+
+{%block js_files%}
+
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+      
+      setInterval(function() {
+        var $e1 = $('#water');
+        x =400;
+        $.getJSON( "http://delhi-water-analytics.herokuapp.com/latest_tanker_data", function( data ) {
+        x = x * data.data.water_level/100;
+        coord = data.data.latitude + ", " + data.data.longitude
+        console.log(coord);
+        $('#coordis').text(coord);
+        $e1.css('height',x);
+        });
+      }, 1100);  
+
+    });
+    </script>
+
+{%endblock%}

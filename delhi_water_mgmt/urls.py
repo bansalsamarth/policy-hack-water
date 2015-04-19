@@ -5,7 +5,7 @@ admin.autodiscover()
 from tastypie.api import Api
 
 from analytics.api import DriverResource, TankerResource, CitizenResource, DispensingDataResource, TrackingResource
-from analytics.views import latest_tanker_data, tanker_data, parse_tracking_data, parse_dispension_data, main_page, tanker_track, tanker_delay, leakage, maintainance
+from analytics.views import hardware, latest_tanker_data, tanker_data, parse_tracking_data, parse_dispension_data, main_page, tanker_track, tanker_delay, leakage, maintainance
 
 v1_api = Api(api_name = 'v1')
 v1_api.register(DriverResource())
@@ -28,4 +28,5 @@ urlpatterns = patterns('',
     url(r'^leakage/', leakage),
     url(r'^api/v1/tanker_data/(?P<id>\d+)', tanker_data),
     url(r'^latest_tanker_data', latest_tanker_data),
+    url(r'^hardware', hardware),
 )

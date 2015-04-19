@@ -21,25 +21,137 @@
 	  <button type="submit" class="btn btn-primary">Search</button>
 	</form>
 	<hr>
-	<div class = "row">
-		<div class="col-md-3 col-sm-6 col-xs-12">
-	        <div class="info-box">
-	            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
-	            <div class="info-box-content">
-	                <span class="info-box-text">CPU Traffic</span>
-	                <span class="info-box-number">90<small>%</small></span>
-	            </div>
-	        </div>
-	            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
-	            <div class="info-box-content">
-	                <span class="info-box-text">CPU Traffic</span>
-	                <span class="info-box-number">90<small>%</small></span>
-	            </div>
-	        </div>
-	    </div>
+	<div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-user"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Driver</span>
+                  <span class="info-box-number">Samarth Bansal</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa fa-clock-o"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Delay Rate</span>
+                  <span class="info-box-number">6/10</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix visible-sm-block"></div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="fa fa-tint"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Leakage </span>
+                  <span class="info-box-number">34<small>%</small></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="fa fa-exclamation-circle"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Complaints</span>
+                  <span class="info-box-number">6</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+    	<div class="col-md-2"></div>
+    	<div class="col-md-8">
+    		{% if error %}
+	    		<div class="alert alert-danger" role="alert">The tanker just completed 25/40 trips scheduled. 10,000 citizens could not get water. Contact the driver.</div>
+    		{%else%}
+    		<div class="alert alert-success" role="alert"><center>The tanker has successfully completed all the trips.</center></div>
+    		{%endif%}
+    	</div>
+    	<div class="col-md-2"></div>
+
+    </div>
+	<div class="row" id="map" style="height: 300px">
+		
+	</div>
+	<br>
+    <div class="row">
+            <div class="col-md-12">
+              <!-- TABLE: LATEST ORDERS -->
+              <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Past Week Performance</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <div class="table-responsive dataTable">
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>Date</th>
+                          <th>Expected Arrival</th>
+                          <th>Expected Departure</th>
+                          <th>Actual Arrival</th>
+                          <th>Actual Departure</th>
+                          <th>Location</th>
+                          <th>Initial Water Level</th>
+                          <th>Water level on Arrival</th>
+                          <th>Water Dispensed</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><a href="">17th April</a></td>
+                          <td>7:00am</td>
+                          <td>7:30pm</td>
+                          <td>7:20am</td>
+                          <td>7:50pm</td>
+                          <td>Okhla</td>
+                          <td>95%</td>
+                          <td>80%</td>
+                          <td>1000L</td>
+                        </tr>
+                        <tr>
+                          <td><a href="pages/examples/invoice.html">16th April</a></td>
+                          <td>8:00am</td>
+                          <td>8:30pm</td>
+                          <td>8:10am</td>
+                          <td>8:40pm</td>
+                          <td>Okhla</td>
+                          <td>93%</td>
+                          <td>85%</td>
+                          <td>1500L</td>
+                        </tr>
+
+                        <tr>
+                          <td><a href="pages/examples/invoice.html">15th April</a></td>
+                          <td>7:00am</td>
+                          <td>7:30pm</td>
+                          <td>7:20am</td>
+                          <td>7:50pm</td>
+                          <td>Okhla</td>
+                          <td>92%</td>
+                          <td>90%</td>
+                          <td>1200L</td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
   </section>
 </div>
 
 {%endblock%}
 
+{%block js_files %}
 
+<script src="{% static 'analytics/js/map1.js' %}" type="text/javascript"></script>
+
+{%endblock%}

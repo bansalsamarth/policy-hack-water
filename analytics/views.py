@@ -69,12 +69,41 @@ def tanker_data(request, id):
 	ret = json.dumps(ret)
 	return HttpResponse(ret, content_type = "application/json")
 
+def latest_tanker_data(request):
+	t = Tanker.objects.get(id = 1)
+	i = TrackingData.objects.filter(tanker = t).order_by('-time')[0]
+	ret = {}
+	ret['data'] = {
+		"latitude" : i.latitude, 
+		"longitude": i.longitude,
+		"water_level": i.water_level,
+		"day" : i.time.day,
+		"month":i.time.month,
+		"year":i.time.year,
+		"hour":i.time.hour,
+		"min":i.time.minute,
+		"sec":i.time.second,
+		}
+	ret = json.dumps(ret)
+	return HttpResponse(ret, content_type = "application/json")
+
+
 
 def main_page(request):
 	return render_to_response('index.html', {'active_tab':'live'}, context_instance = RequestContext(request))
 
 def tanker_track(request):
-	return render_to_response('tanker.html', {'active_tab':'tanker'}, context_instance = RequestContext(request))
+	try:
+		id = request.GET['id']
+		tanker = Tanker.objects.get(id = id)
+	except:
+		id = 2
+	if int(id) == 1:
+		error = False
+	else:
+		error = True
+
+	return render_to_response('tanker.html', {'active_tab':'tanker', 'error':error}, context_instance = RequestContext(request))
 
 def tanker_delay(request):
 	return render_to_response('delay.html', {'active_tab':'delay'}, context_instance = RequestContext(request))

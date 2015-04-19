@@ -51,8 +51,9 @@
           <ul class="sidebar-menu">
             <li class="header">Welcome</li>
             <li class="{% ifequal active_tab "live" %}active{% endifequal %}"><a href="/"><span>Live Monitoring</span></a><</li>
-            <li class="{% ifequal active_tab "tanker" %}active{% endifequal %}"><a href="/tanker"><span>Tanker Tracking</span></a><</li>
             <li class="{% ifequal active_tab "leakage" %}active{% endifequal %}"><a href="/leakage"><span>Leakage Analysis</span></a><</li>
+
+            <li class="{% ifequal active_tab "tanker" %}active{% endifequal %}"><a href="/tanker"><span>Tanker Tracking</span></a><</li>
             <li class="{% ifequal active_tab "maintain" %}active{% endifequal %}"><a href="/maintain"><span>Maintainance</span></a><</li>
             <li class="{% ifequal active_tab "hardware" %}active{% endifequal %}"><a href="/hardware"><span>Hardware Testing</span></a><</li>
           </ul>

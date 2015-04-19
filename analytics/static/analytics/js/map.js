@@ -12,7 +12,7 @@ $(document).ready(function(){
  
         var getLocationDataForTanker = function() {
           var mapOptions = {
-              zoom: 11,
+              zoom: 10,
               center: {lat: 28.6284909, lng: 77.2222353}
           };
           map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -200,7 +200,7 @@ $(document).ready(function(){
                   if(i<snappedCoordinates1.length*3/4)
                                         marker1.setIcon(STATIC_URL + "fuel_tanker_red.png");
                   if (--i) myLoop(i);
-              }, 400)
+              }, 200)
           })(snappedCoordinates1.length);
         }
         function animateTruck2(){
@@ -209,7 +209,7 @@ $(document).ready(function(){
               setTimeout(function () {
                   marker2.setPosition(snappedCoordinates2[i]);
                   if (--i) myLoop(i);
-              }, 400)
+              }, 200)
           })(snappedCoordinates2.length);
         }
         function animateTruck3(){
@@ -220,7 +220,7 @@ $(document).ready(function(){
                   if(i<snappedCoordinates3.length*3/4)
 						marker3.setIcon(STATIC_URL + "fuel_tanker_yellow.png");
                   if (--i) myLoop(i);
-              }, 400)
+              }, 200)
           })(snappedCoordinates3.length);
         }
         function animateTruck4(){
@@ -233,7 +233,7 @@ $(document).ready(function(){
                                         if(i<snappedCoordinates4.length/4)
                                         marker4.setIcon(STATIC_URL + "fuel_tanker_red.png");
                   if (--i) myLoop(i);
-              }, 400)
+              }, 200)
           })(snappedCoordinates4.length);
         }
         getLocationDataForTanker();
